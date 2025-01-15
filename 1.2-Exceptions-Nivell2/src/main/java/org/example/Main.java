@@ -3,49 +3,29 @@ package org.example;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+
+
 public class Main {
+
+
     public static void main(String[] args) {
 
-        System.out.println("Age input: " + readByte("Enter your age"));
+        System.out.println("Age input: " + Input.readByte("Enter your age"));
+        System.out.println("Phone number input: " + Input.readInt("Enter your phone number"));
+        System.out.println("IBAN number input: " + Input.readFloat("Enter your IBAN number"));
+        System.out.println("Price of coffee input: " + Input.readDouble("Enter the price of coffee at the IT Academy"));
 
-    }
+        try {
+            System.out.println("Your name input: " + Input.readString("Enter your name"));
+            System.out.println("Letter of your ID input: " + Input.readChar("Enter the letter of your ID"));
+            System.out.println("Letter of your ID input: " + Input.readYesNo("Do you want to continue (Y/N)"));
 
-    public static byte readByte(String message) throws InputMismatchException {
-
-        Scanner input = new Scanner(System.in);
-        byte age = 0;
-        boolean correctInput = false;
-
-        while (!correctInput) {
-            try {
-                System.out.println(message);
-                age = input.nextByte();
-
-                if (age > 0) {
-                    correctInput = true;
-                } else {
-                    System.out.println("Your age must be over 0. Try again.");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Invalid input. Enter a valid byte.");
-                input.next();
-            }
+        } catch (InputWrongException e) {
+            System.out.println("Error: " + e.getMessage());;
         }
-        return age;
 
     }
 
-    public static int readInt(String message){
 
-        return 0;
-    }
-
-    public static float readFloat(String message){
-        return 0;
-    }
-
-    public static double readDouble(String message){
-        return 0.0;
-    }
 
 }

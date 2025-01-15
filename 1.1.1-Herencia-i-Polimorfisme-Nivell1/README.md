@@ -32,8 +32,9 @@ Project created with:
 No specific requirement but the Java and Maven version or newer.
 
 🛠️**Installation:**
-- Clone this repo: -> [git clone](https://github.com/isaac-diez/IT-Academy-Java/tree/master/1.1.1-Herencia-i-Polimorfisme-Nivell1)
+- Clone this repo: -> [git clone](https://github.com/isaac-diez/IT-Academy-Java.git)
 - Access to the project folder: cd 1.1.1-Herencia-i-Polimorfisme-Nivell1
+- **IMPORTANT: checkout branch MASTER**
 
 ▶️**Execution:** No specific instruction.
 

@@ -13,33 +13,28 @@ public class Main {
         Scanner input = new Scanner(System.in);
         HashMap<String,String> countries = new HashMap<>();
 
-        try (Scanner scanner = new Scanner(Paths.get("countries.txt"))){
-
-            while(scanner.hasNextLine()){
-
-                String row = scanner.nextLine();
-                String[] parts = row.split(";");
-                countries.put(parts[0],parts[1]);
-
-                //System.out.println(row);
-            }
-
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        }
-
-        //ArrayList<String> keysAsArray = new ArrayList<String>(countries.keySet());
+        readFromFile(countries,"countries.txt");
 
         ArrayList<String> keysAsArray = new ArrayList<>();
         for (String countryName : countries.keySet()) {
             keysAsArray.add(countryName);
         }
 
-        //System.out.println(keysAsArray.size());
 
         System.out.print("Input your name: ");
         String name = input.nextLine();
 
+        int points = getPoints(keysAsArray, input, countries);
+
+        Writer resultsWriter = new Writer("stats.txt");
+        resultsWriter.writeToFile(name,points);
+
+
+
+
+    }
+
+    private static int getPoints(ArrayList<String> keysAsArray, Scanner input, HashMap<String, String> countries) {
         int points = 0;
         ArrayList<String> countriesPicked = new ArrayList<>();
 
@@ -69,12 +64,22 @@ public class Main {
         }
 
         System.out.println("You guessed right " + points + " times");
+        return points;
+    }
 
-        Writer resultsWriter = new Writer("stats.txt");
-        resultsWriter.writeToFile(name,points);
+    private static void readFromFile(HashMap<String, String> countries, String filename) {
+        try (Scanner scanner = new Scanner(Paths.get(filename))){
 
+            while(scanner.hasNextLine()){
 
+                String row = scanner.nextLine();
+                String[] parts = row.split(";");
+                countries.put(parts[0],parts[1]);
 
+            }
 
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
 }

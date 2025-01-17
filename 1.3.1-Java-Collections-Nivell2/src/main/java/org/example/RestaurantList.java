@@ -12,12 +12,19 @@ public class RestaurantList {
 
     public void addRestaurant(Restaurant restaurant) {
 
-            if (restaurantList.contains(restaurant)) {
-                System.out.println("Restaurant " + restaurant.getName() + " with score " + restaurant.getScore() + " already on the HashSet. Duplicates not allowed!");
+        boolean restaurantDuplicate = false;
 
+        for (Restaurant restaurantToCompare : restaurantList) {
+            if ((restaurantToCompare.getName().equals(restaurant.getName())) && (restaurantToCompare.getScore() == restaurant.getScore())) {
+                restaurantDuplicate = true;
             }
+        }
 
-        restaurantList.add(restaurant);
+        if (restaurantDuplicate) {
+            System.out.println("Restaurant " + restaurant.getName() + " with score " + restaurant.getScore() + " already on the HashSet. Duplicates not allowed!");
+        } else {
+            restaurantList.add(restaurant);
+        }
 
     }
 

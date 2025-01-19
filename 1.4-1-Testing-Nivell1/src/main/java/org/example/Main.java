@@ -21,21 +21,24 @@ public class Main {
         lesseps.addBook(book5);
         lesseps.addBook(book7);
         lesseps.addBook(book9);
+        System.out.println();
 
         lesseps.fullCatalog();
         System.out.println();
 
         lesseps.getBookByPosition(2); // Expected "The Catcher in the Rye"
+        System.out.println();
 
         lesseps.addBookByPosition(book2, 3);
+        System.out.println();
 
         lesseps.fullCatalog();
         System.out.println();
 
         lesseps.deleteBookByTitle("1984");
+        System.out.println();
 
         lesseps.fullCatalog();
-
         System.out.println();
 
         lesseps.addBook(book2); // Expected book not added due to duplicity

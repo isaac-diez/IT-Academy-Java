@@ -11,6 +11,14 @@ public class Library {
         this.library = new ArrayList<>();
     }
 
+    public ArrayList<Book> getLibrary() {
+        return library;
+    }
+
+    public void setLibrary(ArrayList<Book> library) {
+        this.library = library;
+    }
+
     public void addBook(Book book) {
 
         if (!this.library.isEmpty()) {
@@ -48,9 +56,11 @@ public class Library {
         }
     }
 
-    public void getBookByPosition(int position) {
+    public String getBookByPosition(int position) {
 
-        System.out.println("The book at the position " + position + " is" + this.library.get(position).getTitle());
+        System.out.println("The book at the position " + position + " is " + this.library.get(position).getTitle());
+
+        return this.library.get(position).getTitle();
     }
 
     public void addBookByPosition(Book book, int position) {

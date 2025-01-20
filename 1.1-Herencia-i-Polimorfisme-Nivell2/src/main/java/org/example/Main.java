@@ -10,6 +10,7 @@ public class Main {
         isaacPhone.call(623453321);
         josePhone.call(637678874);
 
+        System.out.println();
         isaacPhone.takePicture();
         isaacPhone.alarm();
 

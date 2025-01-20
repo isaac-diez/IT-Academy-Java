@@ -12,20 +12,16 @@ public class Car {
 
     }
 
-    public int getPower() {
-        return power;
-    }
-
     public static String getModel() {
         return model;
     }
 
-    public String getMaker(){
-        return maker;
-    }
-
     public static void setModel(String model) {
         Car.model = model;
+    }
+
+    public int getPower() {
+        return power;
     }
 
     public static void brake(){

@@ -19,7 +19,7 @@ public class Library {
         this.library = library;
     }
 
-    public void addBook(Book book) {
+    public boolean addBook(Book book) {
 
         if (!this.library.isEmpty()) {
 
@@ -35,6 +35,7 @@ public class Library {
             if (!exists) {
                 this.library.add(book);
                 System.out.println("The book " + book.getTitle() + " was successfully added to the catalog.");
+                return true;
             } else {
                 System.out.println("The book " + book.getTitle() + " is already in the catalog. Failed to add.");
             }
@@ -42,7 +43,10 @@ public class Library {
         } else {
             this.library.add(book);
             System.out.println("The book " + book.getTitle() + " was successfully added to the catalog.");
+            return true;
         }
+
+        return false;
     }
 
     public void fullCatalog() {

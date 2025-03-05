@@ -36,6 +36,7 @@ public class Input {
             try {
                 System.out.println(message);
                 phoneNumber = input.nextInt();
+                correctInput = true;
 
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Enter a valid integer.");
@@ -54,6 +55,7 @@ public class Input {
             try {
                 System.out.println(message);
                 ibanNumber = input.nextFloat();
+                correctInput = true;
 
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Enter a valid float.");
@@ -72,6 +74,7 @@ public class Input {
             try {
                 System.out.println(message);
                 coffeePrice = input.nextDouble();
+                correctInput = true;
 
             } catch (InputMismatchException e) {
                 System.out.println("Invalid input. Enter a valid double.");
@@ -149,7 +152,7 @@ public class Input {
                 } else {
                     throw new InputWrongException("Invalid input. Try again.");
                 }
-            } catch (InputMismatchException e) {
+            } catch (InputWrongException e) {
                 System.out.println("Error: " + e.getMessage());
 
             }
